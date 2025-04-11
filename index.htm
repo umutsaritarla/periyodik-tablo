@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>Etkileşimli Periyodik Tablo</title>
+    <meta charset="utf-8" />
+    <link href="projects.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div class="maindiv">
+
+		<div class="banner"></div>
+
+		
+
+    	<div class="roundcorners leftdiv">
+
+			<table style="width:100%;">
+
+            	<tr><td><div class="label">İsim</div></td></tr>
+            	<tr><td><input type="text" id="namefilter" style="width:124px" /></td></tr>
+
+            	<tr><td><div class="label">Atom Numarası</div></td></tr>
+            	<tr><td><input type="number" id="atomicnumberfilter" style="width:124px" min=1 max=118 /></td></tr>
+
+            	<tr><td><div class="label">Sembol</div></td></tr>
+            	<tr><td><input type="text" id="symbolfilter" style="width:124px" /></td></tr>
+
+				<tr><td><div class="label">Kategori</div></td></tr>
+				<tr><td>
+					<select id="categoryfilter">
+						<option value=""></option>
+						<option value="Alkali metal">Alkali metal</option>
+						<option value="Toprak alkali metal">Toprak alkali metal</option>
+						<option value="Lantanit">Lantanit</option>
+						<option value="Aktinit">Aktinit</option>
+						<option value="Geçiş metali">Geçiş metali</option>
+						<option value="Zayıf metal">Zayıf metal</option>
+						<option value="Yarı metal">Yarı metal</option>
+						<option value="Reaktif ametal">Reaktif ametal</option>
+						<option value="Soygaz">Soygaz</option>
+						<option value="Bilinmiyor">Bilinmiyor</option>
+					</select>
+				</td></tr>
+
+
+            	<tr><td><div class="label">Grup</div></td></tr>
+            	<tr><td>
+					<select id="groupfilter">
+  						<option value=""></option>
+  						<option value="0">yok</option>
+  						<option value="1">1</option>
+  						<option value="2">2</option>
+  						<option value="3">3</option>
+  						<option value="4">4</option>
+  						<option value="5">5</option>
+  						<option value="6">6</option>
+  						<option value="7">7</option>
+  						<option value="8">8</option>
+  						<option value="9">9</option>
+  						<option value="10">10</option>
+  						<option value="11">11</option>
+  						<option value="12">12</option>
+  						<option value="13">13</option>
+  						<option value="14">14</option>
+  						<option value="15">15</option>
+  						<option value="16">16</option>
+  						<option value="17">17</option>
+  						<option value="18">18</option>
+					</select>
+				</td></tr>
+
+            	<tr><td><div class="label">Periyot</div></td></tr>
+            	<tr><td>
+					<select id="periodfilter">
+  						<option value=""></option>
+  						<option value="1">1</option>
+  						<option value="2">2</option>
+  						<option value="3">3</option>
+  						<option value="4">4</option>
+  						<option value="5">5</option>
+  						<option value="6">6</option>
+  						<option value="7">7</option>
+					</select>
+				</td></tr>
+
+            	<tr><td><div class="label">Blok</div></td></tr>
+            	<tr><td>
+					<select id="blockfilter">
+  						<option value=""></option>
+  						<option value="d">d</option>
+  						<option value="f">f</option>
+  						<option value="p">p</option>
+  						<option value="s">s</option>
+					</select>
+				</td></tr>
+
+                <tr>
+                    <td colspan="2"><div id="btnApplyFilter" class="button">Filtreyi Uygula</div></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><div id="btnClearFilter" class="button">Filtreyi Temizle</div></td>
+                </tr>
+
+            </table>
+
+    	</div>
+
+    	<div id="periodictablediv" class="roundcorners tablediv">
+			<table id="periodictable" style="width: 100%; height: 100%;"></table>
+		</div>
+
+    	<div class="roundcorners rightdiv">
+
+			<table style="width:100%;">
+
+            	<tr>
+					<td><div class="label">Kategoriye Göre Renklendir</div></td>
+				</tr>
+            	<tr>
+					<td class="radiobutton"><div class="radiobutton"><input type="radio" name="colorby" value="colorbycategory" id="colorcategory" checked /></div></td>
+				</tr>
+
+            	<tr>
+					<td><div class="label">Bloklara Göre Renklendir</div></td>
+				</tr>
+            	<tr>
+					<td class="radiobutton"><div class="radiobutton"><input type="radio" name="colorby" value="colorbyblock" id="colorblock" /></div></td>
+				</tr>
+
+            </table>
+
+			<table id="categorykey" style="width:100%; display: inline;">
+            	<tr><td><div class="alkalimetal colorkey roundcorners">Alkali metal</div></td></tr>
+            	<tr><td><div class="alkalineearthmetal colorkey roundcorners">Toprak alkali metal</div></td></tr>
+            	<tr><td><div class="lanthanide colorkey roundcorners">Lantanit</div></td></tr>
+            	<tr><td><div class="actinide colorkey roundcorners">Aktinit</div></td></tr>
+            	<tr><td><div class="transitionmetal colorkey roundcorners">Geçiş metali</div></td></tr>
+            	<tr><td><div class="posttransitionmetal colorkey roundcorners">Zayıf metal</div></td></tr>
+            	<tr><td><div class="metalloid colorkey roundcorners">Yarı metal</div></td></tr>
+            	<tr><td><div class="reactivenonmetal colorkey roundcorners">Reaktif ametal</div></td></tr>
+            	<tr><td><div class="noblegas colorkey roundcorners">Soygaz</div></td></tr>
+            	<tr><td><div class="unknown colorkey roundcorners">Bilinmiyor</div></td></tr>
+            </table>
+
+			<table id="blockkey" style="width:100%; display: none;">
+            	<tr><td><div class="sblock colorkey roundcorners">s</div></td></tr>
+            	<tr><td><div class="dblock colorkey roundcorners">d</div></td></tr>
+            	<tr><td><div class="fblock colorkey roundcorners">f</div></td></tr>
+            	<tr><td><div class="pblock colorkey roundcorners">p</div></td></tr>
+            </table>
+
+		</div>
+
+	</div>
+
+
+	<div id="infoboxbackground"
+	style="background-color: #000000; position: absolute;
+	left: 0px; right: 0px; top: 0px; bottom: 0px;
+    opacity: 0.8; visibility: hidden;"></div>
+
+	<div id="infobox"
+	 class="border roundcorners"
+	style="position:absolute;  width: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #FFFFFF; visibility: hidden;">
+
+		<table style="width:100%;">
+    		<tr><th colspan="2" id="infoName" class="thelementname"></th></tr>
+    		<tr><th>Atom Numarası</th><td id="infoAtomicNumber"></th></tr>
+        	<tr><th>Kimyasal Sembol</th><td id="infoChemicalSymbol"></td></tr>
+        	<tr><th>Kategori</th><td id="infoCategory"></td></tr>
+        	<tr><th>Atom Kütlesi - Konvensiyonel</th><td id="infoAtomicWeightConventional"></td></tr>
+        	<tr><th>Atom Kütlesi - Standart</th><td id="infoAtomicWeightStandard"></td></tr>
+        	<tr><th>Hali</th><td id="infoOccurrence"></td></tr>
+        	<tr><th>Madde Durumu</th><td id="infoStateOfMatter"></td></tr>
+        	<tr><th>Grup Numarası</th><td id="infoGroup"></td></tr>
+        	<tr><th>Periyot Numarası</th><td id="infoPeriod"></td></tr>
+        	<tr><th>Blok</th><td id="infoBlock"></td></tr>
+        	<tr><td colspan="2"><div id="btnCloseInfoBox" class="button">Kapat</div></td></tr>
+		</table>
+
+	</div>
+
+    <script src="data.js"></script>
+    <script src="periodictable.js"></script>
+    <script src="periodictableinfobox.js"></script>
+    <script src="periodictabledisplay.js"></script>
+    <script src="periodictablepage.js"></script>
+
+</body>
+
+</html>
