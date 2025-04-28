@@ -191,18 +191,17 @@
     <script src="periodictabledisplay.js"></script>
     <script src="periodictablepage.js"></script>
 	<script>
-			// Sayfa yüklenince çalıştır
 		window.addEventListener('load', async () => {
-			if (screen.orientation && screen.orientation.lock) {
-				try {
-					await screen.orientation.lock('landscape');
-				} catch (err) {
-					console.log('Yatay moda kilitleme başarısız:', err);
-				}
+		  if (screen.orientation && screen.orientation.lock) {
+			try {
+			  await screen.orientation.lock('landscape');
+			} catch (err) {
+			  console.log('Otomatik yataya geçiş başarısız:', err);
 			}
+		  }
 		});
-
 	</script>
+		
 
 </body>
 
