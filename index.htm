@@ -191,15 +191,24 @@
     <script src="periodictabledisplay.js"></script>
     <script src="periodictablepage.js"></script>
 	<script>
-		// Mobil cihaz algılama
+		let alertShown = false; // Kullanıcıya alert gösterildi mi?
+		
 		function isMobileDevice() {
 			return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 		}
 		
-		// Ekran yönü kontrolü
 		function checkOrientation() {
-			if (isMobileDevice() && window.innerHeight > window.innerWidth) {
-				alert("Lütfen cihazı yan çevirin.");
+			if (!isMobileDevice()) return; // Sadece mobilde çalıştır
+		
+			if (window.innerHeight > window.innerWidth) {
+				// Dikey mod
+				if (!alertShown) {
+					alertShown = true;
+					alert("Lütfen cihazı yan çevirin.");
+				}
+			} else {
+				// Yatay mod
+				alertShown = false; // Yatay moda geçince sıfırla
 			}
 		}
 		
@@ -208,6 +217,7 @@
 		window.addEventListener('orientationchange', checkOrientation);
 		window.addEventListener('resize', checkOrientation);
 	</script>
+		
 		
 
 </body>
