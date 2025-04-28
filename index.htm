@@ -190,6 +190,25 @@
     <script src="periodictableinfobox.js"></script>
     <script src="periodictabledisplay.js"></script>
     <script src="periodictablepage.js"></script>
+	<script>
+		// Mobil cihaz algılama
+		function isMobileDevice() {
+			return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+		}
+		
+		// Ekran yönü kontrolü
+		function checkOrientation() {
+			if (isMobileDevice() && window.innerHeight > window.innerWidth) {
+				alert("Lütfen cihazı yan çevirin.");
+			}
+		}
+		
+		// Sayfa yüklendiğinde ve yön değiştiğinde kontrol et
+		window.addEventListener('load', checkOrientation);
+		window.addEventListener('orientationchange', checkOrientation);
+		window.addEventListener('resize', checkOrientation);
+	</script>
+		
 
 </body>
 
