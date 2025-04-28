@@ -6,6 +6,24 @@
 	<title>Etkileşimli Periyodik Tablo</title>
     <meta charset="utf-8" />
     <link href="projects.css" rel="stylesheet" />
+
+	<style>
+		#rotate-warning {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.8);
+		color: white;
+		display: none;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		font-size: 24px;
+		z-index: 9999;
+    }
+	</style>
 </head>
 
 <body>
@@ -183,6 +201,10 @@
         	<tr><td colspan="2"><div id="btnCloseInfoBox" class="button">Kapat</div></td></tr>
 		</table>
 
+		<div id="rotate-warning">
+			Lütfen ekranı yan çevirin!
+		</div>
+
 	</div>
 
     <script src="data.js"></script>
@@ -191,16 +213,19 @@
     <script src="periodictabledisplay.js"></script>
     <script src="periodictablepage.js"></script>
 	<script>
-		window.addEventListener('load', async () => {
-		  if (screen.orientation && screen.orientation.lock) {
-			try {
-			  await screen.orientation.lock('landscape');
-			} catch (err) {
-			  console.log('Otomatik yataya geçiş başarısız:', err);
-			}
+		function checkOrientation() {
+		  const warning = document.getElementById('rotate-warning');
+		  if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) && window.innerHeight > window.innerWidth) {
+			warning.style.display = 'flex';
+		  } else {
+			warning.style.display = 'none';
 		  }
-		});
-	</script>
+		}
+	
+		window.addEventListener('load', checkOrientation);
+		window.addEventListener('resize', checkOrientation);
+		window.addEventListener('orientationchange', checkOrientation);
+	  </script>
 		
 
 </body>
